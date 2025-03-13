@@ -21,7 +21,7 @@ class MeAcompanheView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Me Acompanhe"
-        label.font = UIFont.systemFont(ofSize: 18, weight: .heavy)
+        label.font = UIFont.systemFont(ofSize: 22, weight: .heavy)
         return label
     }()
     
@@ -36,7 +36,7 @@ class MeAcompanheView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 6
+        stackView.spacing = 18
         return stackView
     }()
     
@@ -52,7 +52,8 @@ class MeAcompanheView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 4
+        stackView.distribution = .fillEqually
         return stackView
     }()
     
@@ -60,7 +61,8 @@ class MeAcompanheView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 8
+        stackView.spacing = 12
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -68,15 +70,25 @@ class MeAcompanheView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 8
+        stackView.spacing = 12
+        stackView.distribution = .fill
+        return stackView
+    }()
+    
+    lazy var latiLongiStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 2
         return stackView
     }()
     
     lazy var addressStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.spacing = 8
+        stackView.axis = .vertical
+        stackView.spacing = 2
         return stackView
     }()
     
@@ -84,7 +96,9 @@ class MeAcompanheView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Velocidade"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
     
@@ -92,7 +106,8 @@ class MeAcompanheView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Latitude:"
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.textColor = .white
         return label
     }()
     
@@ -100,7 +115,8 @@ class MeAcompanheView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Longitude:"
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.textColor = .white
         return label
     }()
     
@@ -108,15 +124,17 @@ class MeAcompanheView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Endereço:"
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.textColor = .white
         return label
     }()
     
     lazy var latiInfoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "-23.2334453"
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.text = "-46.1325245"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .light)
+        label.textColor = .white
         return label
     }()
     
@@ -124,7 +142,8 @@ class MeAcompanheView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "-46.1325245"
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .light)
+        label.textColor = .white
         return label
     }()
     
@@ -133,7 +152,8 @@ class MeAcompanheView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Rua Silvia de Faria Marcondes, 445, Parque Fernanda"
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .light)
+        label.textColor = .white
         return label
     }()
     
@@ -141,7 +161,7 @@ class MeAcompanheView: UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .lightGray
-        view.layer.cornerRadius = 50
+        view.layer.cornerRadius = 75
         view.clipsToBounds = true
         return view
     }()
@@ -150,7 +170,7 @@ class MeAcompanheView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "7.32"
-        label.font = UIFont.systemFont(ofSize: 50, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         return label
     }()
     
@@ -172,6 +192,7 @@ class MeAcompanheView: UIView {
     
     private func setupUI(){
         
+        backgroundColor = .white
         setHierarchy()
         setConstraints()
     }
@@ -190,9 +211,11 @@ class MeAcompanheView: UIView {
         velocityStackView.addArrangedSubview(velocityNumberView)
         velocityNumberView.addSubview(numberVelocityLabel)
         
-        infoStackView.addArrangedSubview(latiStackView)
-        infoStackView.addArrangedSubview(longiStackView)
-        infoStackView.addArrangedSubview(addressLabel)
+        infoStackView.addArrangedSubview(latiLongiStackView)
+        infoStackView.addArrangedSubview(addressStackView)
+        
+        latiLongiStackView.addArrangedSubview(latiStackView)
+        latiLongiStackView.addArrangedSubview(longiStackView)
         
         latiStackView.addArrangedSubview(latiLabel)
         latiStackView.addArrangedSubview(latiInfoLabel)
@@ -213,7 +236,44 @@ class MeAcompanheView: UIView {
             headerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            headerTitleLabel
+            headerTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 6),
+            headerTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            headerTitleLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -8),
+            
+            infoView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            infoView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            infoView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            mainInfoStackView.topAnchor.constraint(equalTo: infoView.topAnchor, constant: 12),
+            mainInfoStackView.leadingAnchor.constraint(equalTo: infoView.leadingAnchor),
+            mainInfoStackView.trailingAnchor.constraint(equalTo: infoView.trailingAnchor),
+            mainInfoStackView.bottomAnchor.constraint(equalTo: infoView.bottomAnchor, constant: -12),
+            
+            velocityStackView.topAnchor.constraint(equalTo: mainInfoStackView.topAnchor),
+            velocityStackView.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 18),
+            velocityStackView.bottomAnchor.constraint(equalTo: mainInfoStackView.bottomAnchor),
+            
+            velocityLabel.topAnchor.constraint(equalTo: velocityStackView.topAnchor, constant: 18),
+            velocityLabel.centerXAnchor.constraint(equalTo: velocityStackView.centerXAnchor),
+            
+            velocityNumberView.topAnchor.constraint(equalTo: velocityLabel.bottomAnchor, constant: 12),
+            velocityNumberView.centerXAnchor.constraint(equalTo: velocityStackView.centerXAnchor),
+            velocityNumberView.bottomAnchor.constraint(equalTo: velocityStackView.bottomAnchor, constant: -18),
+            velocityNumberView.heightAnchor.constraint(equalToConstant: 150),
+            velocityNumberView.widthAnchor.constraint(equalToConstant: 150),
+            
+            numberVelocityLabel.centerXAnchor.constraint(equalTo: velocityNumberView.centerXAnchor),
+            numberVelocityLabel.centerYAnchor.constraint(equalTo: velocityNumberView.centerYAnchor),
+            
+            infoStackView.topAnchor.constraint(equalTo: mainInfoStackView.topAnchor, constant: 16),
+            infoStackView.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -18),
+
+            
+            mapView.topAnchor.constraint(equalTo: infoView.bottomAnchor),
+            mapView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            mapView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
         ])
     }
 }
