@@ -63,6 +63,7 @@ extension MeAcompanheViewController: CLLocationManagerDelegate, MKMapViewDelegat
         
         let latitude: CLLocationDegrees = userLocation.coordinate.latitude
         let longitude: CLLocationDegrees = userLocation.coordinate.longitude
+        let velocidade = userLocation.speed
         
         let latDelta: CLLocationDegrees = 0.01
         let longDelta: CLLocationDegrees = 0.01
@@ -76,5 +77,30 @@ extension MeAcompanheViewController: CLLocationManagerDelegate, MKMapViewDelegat
         
         contentView.latiInfoLabel.text = String(latitude)
         contentView.longiInfoLabel.text = String(longitude)
+        contentView.numberVelocityLabel.text = String(velocidade)
     }
+    
+    // Trata permisões para quando o usuário não permitir acesso a localizaçao
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        
+//        if status != .authorizedWhenInUse {
+//            
+//            let alertController = UIAlertController(title: "Permissão de Localização",
+//                                                    message: "É necessária a permissão de localização para que o app funcione corretamente, por favor autorize a localização!", preferredStyle: .alert)
+//            
+//            let setupActions = UIAlertAction(title: "Abrir Configurações", style: .default) { (setupActions) in
+//                if let configuracoes = NSURL(string: UIApplication.openSettingsURLString) {
+//                    UIApplication.shared.open(configuracoes as URL)
+//                }
+//            }
+//            let cancelAction = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
+//
+//            alertController.addAction(setupActions)
+//            alertController.addAction(cancelAction)
+//            
+//            present(alertController, animated: true, completion: nil)
+//        }
+//    }
+    
+    
 }
