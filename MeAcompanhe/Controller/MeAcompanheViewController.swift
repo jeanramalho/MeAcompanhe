@@ -26,7 +26,7 @@ class MeAcompanheViewController: UIViewController {
     }
     
     private func setupContentView(){
-        
+        setupLocation()
     }
     
     private func setHierarchy(){
@@ -49,6 +49,32 @@ class MeAcompanheViewController: UIViewController {
 extension MeAcompanheViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     
     private func setupLocation(){
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        let mapView = contentView.mapView
+        mapView.showsUserLocation = true
+        guard let userLocation = locations.last else {return}
+        
+        let latitude: CLLocationDegrees = userLocation.coordinate.latitude
+        let longitude: CLLocationDegrees = userLocation.coordinate.longitude
+        
+        let latDelta: CLLocationDegrees = 0.01
+        let longDelta: CLLocationDegrees = 0.01
+        
+        let localizacao: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        let areaVisualizacao: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
+        
+        let region: MKCoordinateRegion = MKCoordinateRegion(center: localizacao, span: areaVisualizacao)
+        
+        mapView.setRegion(region, animated: true)
+        
+        contentView.latiInfoLabel.text = String(latitude)
+        contentView.longiInfoLabel.text = String(longitude)
     }
 }

@@ -132,7 +132,6 @@ class MeAcompanheView: UIView {
     lazy var latiInfoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "-46.1325245"
         label.font = UIFont.systemFont(ofSize: 18, weight: .light)
         label.textColor = .white
         return label
@@ -141,7 +140,6 @@ class MeAcompanheView: UIView {
     lazy var longiInfoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "-46.1325245"
         label.font = UIFont.systemFont(ofSize: 18, weight: .light)
         label.textColor = .white
         return label
