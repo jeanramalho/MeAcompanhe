@@ -78,6 +78,32 @@ extension MeAcompanheViewController: CLLocationManagerDelegate, MKMapViewDelegat
         contentView.latiInfoLabel.text = String(latitude)
         contentView.longiInfoLabel.text = String(longitude)
         contentView.numberVelocityLabel.text = String(velocidade)
+        
+        // Recupera endereço do usuário atraves da localizacao de latitude e longitude
+        CLGeocoder().reverseGeocodeLocation(userLocation) { localDetails, erro in
+            
+            if erro == nil {
+                if let local = localDetails?.first {
+                    let rua = local.thoroughfare ?? ""
+                    let numero = "n° \(local.subThoroughfare ?? "sem número")"
+                    let bairro = local.subLocality ?? ""
+                    let cidade = local.locality ?? ""
+                    let estado = local.administrativeArea ?? ""
+                    let pais = local.country ?? ""
+                    
+                    
+                    let endereco: String = "\(rua), \(numero), \(bairro) - \(cidade) - \(estado) | \(pais)"
+                    
+                    self.contentView.addressInfoLabel.text = endereco
+                    
+                }
+                
+            } else {
+                self.contentView.addressInfoLabel.text = "Não foi possível recuperar endereço do usuário."
+                print(erro as Any)
+            }
+            
+        }
     }
     
     // Trata permisões para quando o usuário não permitir acesso a localizaçao

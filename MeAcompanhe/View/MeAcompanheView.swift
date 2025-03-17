@@ -148,7 +148,6 @@ class MeAcompanheView: UIView {
     lazy var addressInfoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Rua Silvia de Faria Marcondes, 445, Parque Fernanda"
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 18, weight: .light)
         label.textColor = .white
@@ -167,7 +166,6 @@ class MeAcompanheView: UIView {
     lazy var numberVelocityLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "7.32"
         label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         return label
     }()
