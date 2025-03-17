@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CE4DD44C2D8859C0001944F5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4DD44B2D8859C0001944F5 /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		CE155F3A2D831B5E0085B3F2 /* MeAcompanhe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeAcompanhe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4DD44B2D8859C0001944F5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4DD44C2D8859C0001944F5 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				CE155F3C2D831B5E0085B3F2 /* MeAcompanhe */,
+				CE4DD44A2D8859C0001944F5 /* Frameworks */,
 				CE155F3B2D831B5E0085B3F2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +63,14 @@
 				CE155F3A2D831B5E0085B3F2 /* MeAcompanhe.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CE4DD44A2D8859C0001944F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE4DD44B2D8859C0001944F5 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

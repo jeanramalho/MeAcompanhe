@@ -6,10 +6,12 @@
 //
 import Foundation
 import UIKit
+import MapKit
 
 class MeAcompanheViewController: UIViewController {
     
     let contentView: MeAcompanheView = MeAcompanheView()
+    var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +20,13 @@ class MeAcompanheViewController: UIViewController {
     
     private func setup(){
         
+        setupContentView()
         setHierarchy()
         setConstraints()
+    }
+    
+    private func setupContentView(){
+        
     }
     
     private func setHierarchy(){
@@ -37,4 +44,11 @@ class MeAcompanheViewController: UIViewController {
         ])
     }
     
+}
+
+extension MeAcompanheViewController: CLLocationManagerDelegate, MKMapViewDelegate {
+    
+    private func setupLocation(){
+        
+    }
 }
